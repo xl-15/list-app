@@ -98,6 +98,17 @@
         #todoInput{
             font-size: larger;
         }
+        #todoList {
+            padding: 0;
+            margin: 0;
+        }
+        #todoList li {
+            padding: 5px;
+            display: flex;
+            justify-content: flex-end;
+            border: solid 1px #ccc;
+            border-radius: 5px;
+        }
         .dark-mode #todoInput{
             background-color: #444;
             color: #f0f0f0;
@@ -118,11 +129,11 @@
             margin-top: 10px;
         }
         .listItems{
-            width: 600px;
+            width: 900px;
             overflow: none;
             margin-top: 20px;
             margin-left: 10px;
-            padding-left: 10px;
+            
             background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
@@ -130,8 +141,22 @@
         .listItems, ul{
             list-style-type: none;
             font-size: larger;
+            justify-content: space-between;
         }
         .dark-mode .listItems{
+            background-color: #444;
+            color: #f0f0f0;
+        }
+       .listItems ul li button{
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 15px;
+        }
+        .dark-mode .listItems ul li button{
             background-color: #444;
             color: #f0f0f0;
         }
@@ -161,21 +186,55 @@
 
     <script>
         document.getElementById('todoForm').addEventListener('submit', 
-        function(event) {
+           function(event) {
             event.preventDefault();
             const todoInput = document.getElementById('todoInput');
             const todoText = todoInput.value.trim();
-            
-            if (todoText !== '') {
-                const li = document.createElement('li');
-                li.textContent = todoText;
-                document.getElementById('todoList').appendChild(li);
-                todoInput.value = '';
-            }
-        });
+
+                if (todoText !== '') {
+                    const li = document.createElement('li');
+                    li.textContent = todoText;
+                    document.getElementById('todoList').appendChild(li);
+                    todoInput.value = '';
+
+                    const buttonContainer = document.createElement('div');
+                    buttonContainer.style.display = 'flex';
+                    buttonContainer.style.gap = '10px'; // Optional: Adds space between buttons
+
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Edit';
+                    editButton.style.margin = '10px';
+                    editButton.addEventListener('click', function() {
+                     const newText = prompt('Edit your task:', todoText);
+                        if (newText !== null && newText.trim() !== '') {
+                            li.firstChild.textContent = newText.trim();
+                        }
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.style.margin = '10px';
+                    deleteButton.addEventListener('click', function() {
+                        li.remove();
+                    });
+
+                    buttonContainer.appendChild(editButton);
+                    buttonContainer.appendChild(deleteButton);
+                    li.appendChild(buttonContainer);
+
+                    li.style.display = 'flex';
+                    li.style.justifyContent = 'space-between';
+                }
+
+              
+
+
+           
+            });
+        
         
     
-        function updateClock() {
+            function updateClock() {
             const now = new Date();
             let hours = now.getHours();
             const minutes = String(now.getMinutes()).padStart(2, '0');
