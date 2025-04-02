@@ -12,15 +12,16 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #938c7e;
             color: #333;
             transition: background-color 0.3s, color 0.3s;
         }
         .clock {
             font-size: 5rem;
             padding-bottom: 20px;
+            margin-top: 55px;
             margin-bottom: 20px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-family:Verdana, Geneva, Tahoma, sans-serif
         }
         .toggle-container {
             display: flex;
@@ -48,7 +49,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #3874ff;
             transition: .4s;
             border-radius: 34px;
         }
@@ -59,23 +60,23 @@
             width: 26px;
             left: 4px;
             bottom: 4px;
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             transition: .4s;
             border-radius: 50%;
         }
         input:checked + .slider {
-            background-color: #8721f3;
+            background-color: #f32121;
         }
         input:checked + .slider:before {
             transform: translateX(26px);
         }
         .dark-mode .todo-container {
             background-color: #444;
-            color: #f0f0f0;
+            color: #c9bea8;
         }
         .dark-mode {
             background-color: #333;
-            color: #f0f0f0;
+            color: #c9bea8;
         }
         .todo-container {
             width: 200px;
@@ -84,7 +85,7 @@
             border-radius: 5px;
             padding: 10px;
             align-items: flex-start;
-            background-color: #fff;
+            background-color: #c9bea8;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .todo-container h2 {
@@ -104,10 +105,12 @@
         }
         #todoList li {
             padding: 5px;
+            margin: 2px;
             display: flex;
             justify-content: flex-end;
-            border: solid 1px #ccc;
+            border: solid 2px #938c7e;
             border-radius: 5px;
+            font-size: 25px;
         }
         .dark-mode #todoInput{
             background-color: #444;
@@ -117,11 +120,11 @@
             margin-top: 10px;
             padding: 5px;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid #938c7e;
         }
         .dark-mode .addButton{
             background-color: #444;
-            color: #f0f0f0;
+            color: #c9bea8;
         }
         #todoForm {
             display: flex;
@@ -133,8 +136,7 @@
             overflow: none;
             margin-top: 20px;
             margin-left: 10px;
-            
-            background-color: #fff;
+            background-color: #c9bea8;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
         }
@@ -150,15 +152,15 @@
        .listItems ul li button{
             background-color: #f0f0f0;
             color: #333;
-            border: 1px solid #ccc;
+            border: 1px solid #c9bea8;
             border-radius: 5px;
             padding: 5px;
             margin: 10px;
-            font-size: 15px;
+            font-size: 16px;
         }
         .dark-mode .listItems ul li button{
             background-color: #444;
-            color: #f0f0f0;
+            color: #c9bea8;
         }
 
     </style>
@@ -252,6 +254,9 @@
                             li.firstChild.textContent = newText.trim();
                         }
                     });
+                    const markButton = document.createElement('button');
+                    markButton.textContent = 'Mark';
+                    markButton.style.margin = '10px';
 
                     const deleteButton = document.createElement('button');
                     deleteButton.textContent = 'Delete';
