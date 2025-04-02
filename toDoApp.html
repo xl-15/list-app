@@ -185,8 +185,50 @@
     </div>
 
     <script>
+
+
+        //alright co pilot lets get this to do list working
+        //first we need to add an event listener to the form
+        //then we need to prevent the default action of the form
+        //then we need to get the value of the input field
+        //then we need to create a new list item
+        //then we need to append the list item to the ul
+        //then we need to clear the input field
+        //then we need to create a button container
+        //then we need to create an edit button
+        //then we need to create a delete button
+        //then we need to append the buttons to the button container
+        //then we need to append the button container to the list item
+        //then we need to style the list item
+        //then we need to add an event listener to the edit button
+        //then we need to prompt the user to edit the task
+        //then we need to update the text content of the list item
+        //then we need to add an event listener to the delete button
+        //then we need to remove the list item
+        //then we need to style the buttons
+        //then we need to style the button container
+        //then we need to style the list item
+        //then we need to style the ul
+        //then we need to style the form
+        //then we need to style the input
+        //then we need to style the buttons
+        //then we need to style the dark mode toggle
+        //then we need to style the dark mode
+        //then we need to style the body
+        //then we need to style the clock
+        //then we need to style the toggle container
+        //then we need to style the toggle label
+        //then we need to style the toggle switch
+        //then we need to style the slider
+        //then we need to style the slider before
+        //then we need to style the dark mode todo container
+        //then we need to style the todo container
+        //then we need to style the todo list container
+        //then we need to style the list items
+        //then we need to style the dark modes.
         document.getElementById('todoForm').addEventListener('submit', 
-           function(event) {
+            function(event) {
+
             event.preventDefault();
             const todoInput = document.getElementById('todoInput');
             const todoText = todoInput.value.trim();
@@ -225,14 +267,18 @@
                     li.style.display = 'flex';
                     li.style.justifyContent = 'space-between';
                 }
-
-              
-
-
-           
             });
         
         
+    //* Digital Clock that also is for yt video*//
+            const clockInvincible = "you're going to be Invincible";
+                function padRow(){
+                    console.log(clockInvincible);
+                }
+                console.log(padRow());
+
+
+
     
             function updateClock() {
             const now = new Date();
@@ -243,7 +289,7 @@
             hours = hours % 12;
             hours = hours ? hours : 12; // the hour '0' should be '12'
             document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-        }
+            }
 
         document.getElementById('darkModeToggle').addEventListener('change', 
         function() {
@@ -252,6 +298,8 @@
 
         setInterval(updateClock, 1000);
         updateClock();
+        
+
     </script>
 </body>
 </html>
