@@ -163,6 +163,16 @@
             color: #c9bea8;
         }
 
+        #task-completed-checkbox{
+            background-color: #f0f0f0;
+            color: #333;
+            border: 1px solid #c9bea8;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
     </style>
 </head>
 <body>
@@ -241,9 +251,25 @@
                     document.getElementById('todoList').appendChild(li);
                     todoInput.value = '';
 
-                    const buttonContainer = document.createElement('div');
+                    const buttonContainer = document.createElement('div'); //The appended parent here!!!!
                     buttonContainer.style.display = 'flex';
                     buttonContainer.style.gap = '10px'; // Optional: Adds space between buttons
+
+                    //this is the checkbox 
+                    const checkBox = document.createElement('input');
+                    checkBox.type = 'checkbox';
+                    checkBox.id = 'task-completed-checkbox';
+                    checkBox.style.display = 'flex';
+                    checkBox.style.margin = '10px';
+                    console.log("this is the checkbox");
+                    checkBox.addEventListener('change', function() {
+                        if (checkBox.checked) {
+                            li.style.textDecoration = 'line-through';
+                        } else {
+                            li.style.textDecoration = 'none';
+                        }
+                    });
+                    //this is the checkbox
 
                     const editButton = document.createElement('button');
                     editButton.textContent = 'Edit';
@@ -254,9 +280,6 @@
                             li.firstChild.textContent = newText.trim();
                         }
                     });
-                    const markButton = document.createElement('button');
-                    markButton.textContent = 'Mark';
-                    markButton.style.margin = '10px';
 
                     const deleteButton = document.createElement('button');
                     deleteButton.textContent = 'Delete';
@@ -264,6 +287,8 @@
                     deleteButton.addEventListener('click', function() {
                         li.remove();
                     });
+
+                    
 
                     buttonContainer.appendChild(editButton);
                     buttonContainer.appendChild(deleteButton);
