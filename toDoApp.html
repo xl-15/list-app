@@ -162,15 +162,12 @@
             background-color: #444;
             color: #c9bea8;
         }
+        input[type="checkbox"]:checked {
+            accent-color: #3874ff; /* Change the checkmark color to red */
+        }
 
-        #task-completed-checkbox{
-            background-color: #f0f0f0;
-            color: #333;
-            border: 1px solid #c9bea8;
-            border-radius: 5px;
-            padding: 5px;
-            margin: 10px;
-            font-size: 16px;
+        .dark-mode input[type="checkbox"]:checked {
+            accent-color: #f32121; /* Change the checkmark color to red */
         }
 
     </style>
@@ -260,20 +257,19 @@
                     checkBox.type = 'checkbox';
                     checkBox.id = 'task-completed-checkbox';
                     checkBox.style.display = 'flex';
-                    checkBox.style.margin = '10px';
+                    checkBox.style.width = '20px';
+                    checkBox.style.height = '20px';
+                    checkBox.style.marginTop = '20px';
+
                     console.log("this is the checkbox");
-                    checkBox.addEventListener('change', function() {
-                        if (checkBox.checked) {
-                            li.style.textDecoration = 'line-through';
-                        } else {
-                            li.style.textDecoration = 'none';
-                        }
-                    });
+                    
+                    buttonContainer.appendChild(checkBox);
                     //this is the checkbox
 
                     const editButton = document.createElement('button');
                     editButton.textContent = 'Edit';
                     editButton.style.margin = '10px';
+                    editButton.style.height = '38px';
                     editButton.addEventListener('click', function() {
                      const newText = prompt('Edit your task:', todoText);
                         if (newText !== null && newText.trim() !== '') {
@@ -284,6 +280,7 @@
                     const deleteButton = document.createElement('button');
                     deleteButton.textContent = 'Delete';
                     deleteButton.style.margin = '10px';
+                    deleteButton.style.height = '38px';
                     deleteButton.addEventListener('click', function() {
                         li.remove();
                     });
