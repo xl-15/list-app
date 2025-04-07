@@ -295,7 +295,19 @@
                     li.style.justifyContent = 'space-between';
                 }
             });
-        
+
+            // saving the to do list into local storage
+            function saveTodoList(){
+                const todoList = document.getElementById('todoList');
+                const todosAray = [];
+                todoList.querySelectorAll('li').forEach(li => {
+                    const listText = li.firstChild.textContent;
+                    const checkBox = li.querySelector('input[type="checkbox"]')
+                })
+                console.log('an aray has been made');
+                console.log(todosAray);
+            }// not the end, i need to go to line 305
+            // saving the to do list into local storage
         
     //* Digital Clock that also is for yt video*//
             const clockInvincible = "you're going to be Invincible";
