@@ -302,11 +302,18 @@
                 const todosAray = [];
                 todoList.querySelectorAll('li').forEach(li => {
                     const listText = li.firstChild.textContent;
-                    const checkBox = li.querySelector('input[type="checkbox"]')
+                    const checkBox = li.querySelector('input[type="checkbox"]');
+                    const isChecked = checkBox ? checkBox.checked : false;
+                    todosAray.push({ text: listText, completed: isChecked });
                 })
-                console.log('an aray has been made');
-                console.log(todosAray);
-            }// not the end, i need to go to line 305
+
+                const todosString = JSON.stringify(todosAray);
+                localStorage.setItem('todos', todosString);
+                console.log('todos have been saved');
+                
+            }
+            // Load the todo list from local storage
+            
             // saving the to do list into local storage
         
     //* Digital Clock that also is for yt video*//
