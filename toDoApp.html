@@ -297,23 +297,6 @@
             });
 
             // saving the to do list into local storage
-            function saveTodoList(){
-                const todoList = document.getElementById('todoList');
-                const todosAray = [];
-                todoList.querySelectorAll('li').forEach(li => {
-                    const listText = li.firstChild.textContent;
-                    const checkBox = li.querySelector('input[type="checkbox"]');
-                    const isChecked = checkBox ? checkBox.checked : false;
-                    todosAray.push({ text: listText, completed: isChecked });
-                })
-
-                const todosString = JSON.stringify(todosAray);
-                localStorage.setItem('todos', todosString);
-                console.log('todos have been saved');
-                
-            }
-            // Load the todo list from local storage
-            
             // saving the to do list into local storage
         
     //* Digital Clock that also is for yt video*//
